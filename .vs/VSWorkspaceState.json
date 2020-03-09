@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\backend",
+    "\\backend\\auth",
+    "\\frontend",
+    "\\frontend\\src",
+    "\\frontend\\src\\app",
+    "\\frontend\\src\\app\\auth",
+    "\\frontend\\src\\app\\auth\\home",
+    "\\frontend\\src\\app\\auth\\register",
+    "\\frontend\\src\\app\\services"
+  ],
+  "SelectedNode": "\\frontend\\src\\app\\auth\\home\\home.component.html",
+  "PreviewInSolutionExplorer": false
+}

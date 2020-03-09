@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="form_wrapper">
+  <div class="form_container">
+    <div class="title_container">
+      <h2>Usuarios Registrados</h2>
+    </div>
+    <div class="row clearfix">
+      <div class="">
+        <table class="table table-bordered">
+          <thead>
+            <tr class="encabe">
+              <td>Nombre</td>
+              <td>Correo</td>
+              <td>Fecha de nacimiento</td>
+              <td>Genero</td>
+              <td>Pais</td>
+              <td colspan="2">Acciones</td>
+            </tr>
+          </thead>
+
+          <tbody *ngIf="users">
+            <tr *ngFor="let user of users">
+              <td>{{user.name}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.dateBirth | date: 'dd/MM/yyyy'}}</td>
+              <td>{{user.gender}}</td>
+              <td>{{user.country}}</td>
+              <td><button class="button button2" data-toggle="modal" data-target="#myModal" (click)="sendEdit(user)">Editar</button> | <button class="button button3" (click)="remove(user)">Eliminar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="cerarS" style="float:right">
+    <button class="button button4" (click)="logout()">Cerrar Sesión</button>
+  </div>
+</div>
+
+<!-- Ventana modal -->
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <div class="form_wrapper">
+      <div class="form_container">
+        <div class="title_container">
+          <h2>Actualizar usuario</h2>
+        </div>
+        <div class="row clearfix">
+          <div class="">
+            <form #frmUptate="ngForm" class="login-container" (ngSubmit)="onUpdate(frmUptate)">
+              <input [(ngModel)]="id" type="hidden" name="id" ngModel required />
+              <div class="input_field">
+                <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                <input [(ngModel)]="email" type="email" name="email" placeholder="Email" pattern="^[a-z0-9_-]{8,15}$" ngModel required disabled />
+              </div>
+              <div class="input_field">
+                <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                <input [(ngModel)]="name" type="text" name="name" placeholder="Nombre" ngModel required />
+              </div>
+              <div class="input_field select_option">
+                <label for="men">seleccione su de nacimiento</label>
+                <select [(ngModel)]="country" id="country" name="country" ngModel required>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Ecuador">Ecuador</option>
+                  <option value="Brasil">Brasil</option>
+                  <option value="Chile">Chile</option>
+                </select>
+                <div class="select_arrow"></div>
+              </div>
+              <input class="button" type="submit" value="Actualizar" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="form_wrapper">
+    <div class="form_container">
+        <div class="title_container">
+            <h2>Registro de usuario</h2>
+        </div>
+        <div class="row clearfix">
+            <div class="">
+                <form #frmRegister="ngForm" class="login-container" (ngSubmit)="onRegister(frmRegister)">
+                    <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                        <input type="email" name="email" placeholder="Email" pattern="^[a-z0-9_-]{8,15}$" ngModel required />
+                    </div>
+                    <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                        <input type="text" name="name" placeholder="Nombre" ngModel required />
+                    </div>
+                    <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                        <input type="password" name="password" placeholder="Password" ngModel required />
+                    </div>
+                    <div class="input_field"> <span><i aria-hidden="true" class="fa fa-calendar"></i></span>
+                        <input type="date" id="dateBirth" name="dateBirth" placeholder="fecha de nacimiento" ngModel required>
+                    </div>
+                    <div class="input_field radio_option">
+                        <input type="radio" name="gender" id="men" value="Hombre" ngModel required>
+                        <label for="men">Hombre</label>
+                        <input type="radio" name="gender" id="woman" value="Mujer" ngModel required>
+                        <label for="woman">Mujer</label>
+                    </div>
+                    <label for="country">Pais de nacimiento</label>
+                    <div class="input_field select_option">
+                        <select id="country" name="country" ngModel required>
+                          <option value="Colombia">Colombia</option>
+                          <option value="Ecuador">Ecuador</option>
+                          <option value="Brasil">Brasil</option>
+                          <option value="Chile">Chile</option>
+                        </select>
+                        <div class="select_arrow"></div>
+                    </div>
+                    <div class="input_field checkbox_option">
+                        <input type="checkbox" id="acceptTC" name="acceptTC" ngModel required>
+                        <label for="acceptTC">Aceptar terminos y condiciones.</label>
+                    </div>
+                    <input class="button" type="submit" value="Registrarse" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
